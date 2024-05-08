@@ -312,6 +312,8 @@ XOR on register _rs1_ and the sign-extended 12-bit immediate and place
 the result in _rd_. Note, XORI _rd, rs1, -1_ performs a bitwise logical
 inversion of register _rs1_ (assembler pseudoinstruction NOT _rd, rs_).
 
+sail::execute[part=body,dedent,clause="ITYPE(_,_,_,_)"]
+
 include::images/wavedrom/int-comp-slli-srli-srai.adoc[]
 [[int-comp-slli-srli-srai]]
 //.Integer register-immediate, SLLI, SRLI, SRAI
@@ -323,6 +325,8 @@ type is encoded in bit 30. SLLI is a logical left shift (zeros are
 shifted into the lower bits); SRLI is a logical right shift (zeros are
 shifted into the upper bits); and SRAI is an arithmetic right shift (the
 original sign bit is copied into the vacated upper bits).
+
+sail::execute[part=body,dedent,clause="SHIFTIOP(_,_,_,_)"]
 
 include::images/wavedrom/int-comp-lui-aiupc.adoc[]
 [[int-comp-lui-aiupc]]
@@ -357,6 +361,8 @@ simpler microarchitectures or pollute BTB structures in more complex
 microarchitectures.
 ====
 
+sail::execute[part=body,dedent,clause="UTYPE(_,_,_)"]
+
 ==== Integer Register-Register Operations
 
 RV32I defines several arithmetic R-type operations. All operations read
@@ -380,6 +386,8 @@ logical operations.
 SLL, SRL, and SRA perform logical left, logical right, and arithmetic
 right shifts on the value in register _rs1_ by the shift amount held in
 the lower 5 bits of register _rs2_.
+
+sail::execute[part=body,dedent,clause="RTYPE(_,_,_,_)"]
 
 ==== NOP Instruction
 
@@ -448,6 +456,8 @@ include::images/wavedrom/ct-unconditional.adoc[]
 [[ct-unconditional]]
 //.The unconditional-jump instruction, JAL
 
+sail::execute[part=body,dedent,clause="RISCV_JAL(_,_)"]
+
 The indirect jump instruction JALR (jump and link register) uses the
 I-type encoding. The target address is obtained by adding the
 sign-extended 12-bit I-immediate to the register _rs1_, then setting the
@@ -490,6 +500,8 @@ to implement fast calls to a small runtime library. Alternatively, an
 ABI could dedicate a general-purpose register to point to a library
 elsewhere in the address space.
 ====
+
+sail::execute[part=body,dedent,clause="RISCV_JALR(_,_,_)"]
 
 The JAL and JALR instructions will generate an
 instruction-address-misaligned exception if the target address is not

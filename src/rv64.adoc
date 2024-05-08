@@ -84,7 +84,6 @@ _imm[5] &#8800; 0_ are reserved.
 
 sail::execute[part=body,dedent,clause="SHIFTIWOP(_,_,_,_)"]
 
-
 [NOTE]
 ====
 Previously, SLLIW, SRLIW, and SRAIW with _imm[5] &#8800; 0_
@@ -115,6 +114,8 @@ with LD, AUIPC with JALR, etc. in RV64I is
 [latexmath:[${-}2^{31}{-}2^{11}$], latexmath:[$2^{31}{-}2^{11}{-}1$]].
 ====
 
+sail::execute[part=body,dedent,clause="UTYPE(_,_,_)"]
+
 ==== Integer Register-Register Operations
 
 //this diagramdoesn't match the tex specification
@@ -140,6 +141,8 @@ results to 64 bits. The shift amount is given by _rs2[4:0]_.
 (((RV64I-only, SLLW)))
 (((RV64I-only, SRLW)))
 (((RV64I-only, SRAW)))
+
+sail::execute[part=body,dedent,clause="RTYPEW(_,_,_,_)"]
 
 === Load and Store Instructions
 
