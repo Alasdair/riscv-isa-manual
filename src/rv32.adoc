@@ -580,6 +580,8 @@ Signed array bounds may be checked with a single BLTU instruction, since
 any negative index will compare greater than any nonnegative bound.
 ====
 
+sail::execute[part=body,dedent,clause="BTYPE(_,_,_,_)"]
+
 Software should be optimized such that the sequential code path is the
 most common path, with less-frequently taken code paths placed out of
 line. Software should also assume that backward branches will be
@@ -906,6 +908,8 @@ The `ECALL` instruction is used to make a service request to the execution
 environment. The `EEI` will define how parameters for the service request
 are passed, but usually these will be in defined locations in the
 integer register file.
+
+sail::execute[part=body,dedent,clause="ECALL()"]
 
 The `EBREAK` instruction is used to return control to a debugging
 environment.
