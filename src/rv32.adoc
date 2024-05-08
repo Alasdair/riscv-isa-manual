@@ -844,6 +844,8 @@ The fence mode field _fm_ defines the semantics of the `FENCE`. A `FENCE`
 with _fm_=`0000` orders all memory operations in its predecessor set
 before all memory operations in its successor set.
 
+sail::execute[part=body,dedent,clause="FENCE(_,_)"]
+
 The `FENCE.TSO` instruction is encoded as a `FENCE` instruction
 with _fm_=`1000`, _predecessor_=`RW`, and _successor_=`RW`. `FENCE.TSO` orders
 all load operations in its predecessor set before all memory operations
@@ -857,6 +859,8 @@ store operations in the `FENCE.TSO's` predecessor set unordered with
 Because FENCE RW,RW imposes a superset of the orderings that FENCE.TSO
 imposes, it is correct to ignore the _fm_ field and implement FENCE.TSO as FENCE RW,RW.
 ====
+
+sail::execute[part=body,dedent,clause="FENCE_TSO(_,_)"]
 
 The unused fields in the `FENCE` instructions--_rs1_ and _rd_--are reserved
 for finer-grain fences in future extensions. For forward compatibility,
